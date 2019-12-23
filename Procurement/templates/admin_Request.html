@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<html>
+<head>
+<title>Product 2</title>
+</head>
+<body>
+{% block content %}
+<center>
+<h1>Create a Post </h1>
+<form action="" method="POST">
+{% csrf_token %}
+    <br>
+Product ID: <br>
+    <input type="text" name="product_id" /><br/>
+Product Name:<br><input type="text" name="product_name" /><br/>
+Product Description:<br><input type="text" name="product_description" /><br/>
+Created On:<br><input type="text" name="created" /><br/>
+Created by:<br><input type="text" name="created_by" /><br/>
+Updated:<br><input type="text" name="updated" /><br/>
+Updated By:<br><input type="text" name="updated_by" /><br/>
+    <br/>
+<input class="btn btn-primary" type="submit" value="Post"/><br>
+</form>
+    </center>
+{% endblock %}
+</body>
+</html>

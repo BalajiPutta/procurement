@@ -1,0 +1,49 @@
+
+{% include 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="dropdown" align="right">
+  <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Admin
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Contact Us</a>
+    <a class="dropdown-item" href="#">About</a>
+    <a class="dropdown-item" href="/admin_logout/">Logout</a>
+  </div>
+</div>
+
+<table align="center" class="table table-striped">
+  <thead>
+    <tr>
+      <td scope="col">Id</td>
+      <td scope="col">Name</td>
+      <td scope="col">Description</td>
+      <td scope="col">Created Date</td>
+      <td scope="col">Created By</td>
+      <td scope="col">Updated Date</td>
+      <td scope="col">Updated By</td>
+      <td scope="col">Image</td>
+    </tr>
+  </thead>
+  <tbody>
+  {% for x in data %}
+      <tr>
+          <th>{{ x.product_id }}</th>
+          <th>{{ x.product_name }}</th>
+          <th>{{ x.product_description }}</th>
+          <th>{{ x.created_date }}</th>
+          <th>{{ x.created_by }}</th>
+          <th>{{ x.updated_date }}</th>
+          <th>{{ x.updated_by }}</th>
+      </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+
+{% endblock %}

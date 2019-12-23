@@ -1,0 +1,12 @@
+{% include 'base.html' %}
+    {% block content %}
+        <div class="row" id="r2" align="center">
+            <form class="col" action="/admin_home/">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-secondary btn-lm">Admin Home</button>
+            </form>
+            <form class="col" action="/user_home/">
+                <button type="submit" class="btn btn-secondary btn-lm">User Home</button>
+            </form>
+        </div>
+    {% endblock %}

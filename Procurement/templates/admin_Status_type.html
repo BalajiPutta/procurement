@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<html>
+<head>
+<title>Status_Type</title>
+</head>
+<body>
+{% block content %}
+<center>
+<h1>Create a Post </h1>
+<form action="" method="POST">
+{% csrf_token %}
+    <br>
+
+status_id:<br><input type="text" name="status_id" /><br/>
+status_name:<br><input type="text" name="status_name" /><br/>
+Created On:<br><input type="text" name="created" /><br/>
+Created by:<br><input type="text" name="created_by" /><br/>
+Updated:<br><input type="text" name="updated" /><br/>
+Updated By:<br><input type="text" name="updated_by" /><br/>
+    <br/>
+<input class="btn btn-primary" type="submit" value="Post"/><br>
+</form>
+    </center>
+{% endblock %}
+</body>
+</html>

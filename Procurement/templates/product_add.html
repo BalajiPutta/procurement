@@ -1,0 +1,70 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<body style="background-color: burlywood">
+<form class="form-horizontal" action="/adding_product/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<fieldset>
+
+
+<!-- Form Name -->
+<center><legend>ADD PRODUCTS</legend></center>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_id">PRODUCT ID</label>
+  <div class="col-md-4">
+  <input id="product_id" name="product_id" placeholder="PRODUCT ID" class="form-control input-md" required="" type="text">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+  <div class="col-md-4">
+  <input id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text">
+
+  </div>
+</div>
+
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_description">PRODUCT DESCRIPTION</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="product_description" name="product_description"></textarea>
+  </div>
+</div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="approuved_by">Created BY</label>
+  <div class="col-md-4">
+  <input id="approuved_by" name="created_by" placeholder="CREATED BY" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+ <!-- File Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton">Product Image</label>
+  <div class="col-md-4">
+    <input id="filebutton" name="file" class="input-file" type="file">
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4" align="center">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+  </div>
+  </div>
+  </div>
+</div>
+</fieldset>
+</form>
+</body>

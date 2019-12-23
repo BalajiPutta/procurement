@@ -1,0 +1,31 @@
+{% if request.session.user %}
+{% csrf_token %}
+    {% include 'base.html' %}
+    {% load staticfiles %}
+    
+    {% block content %}
+        <div class="dropdown" align="right">
+            <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ request.session.user }}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Contact Us</a>
+                <a class="dropdown-item" href="#">About</a>
+                <a class="dropdown-item" href="/user_logout/">Logout</a>
+            </div>
+        </div>
+
+
+        <div class="row" align="center">
+            <div class="col">
+                <h1>successfuly data inserterd</h1>
+                <a class="dropdown-item" href="/user_raise_req"></a>
+            </div>
+        </div>
+ {% endblock %}
+
+{% else %}
+    {% include 'user_raise_req.html' %}
+{% endif %}

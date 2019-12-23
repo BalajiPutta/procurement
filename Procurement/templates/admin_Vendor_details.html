@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+<html>
+<head>
+<title>Product 2</title>
+</head>
+<body>
+{% block content %}
+<center>
+<h1>Create a Post </h1>
+<form action="" method="POST">
+   {% csrf_token %}
+    <br>
+     vendor_id: <br>
+    <input type="text" name="vendor_id" /><br/>
+    vendor_name:<br><input type="text" name="vendor_name" /><br/>
+    location:<br><input type="text" name="location" /><br/>
+
+    address 1:<br><input type="text" name="address 1" /><br/>
+    address 2:<br><input type="text" name="address 2" /><br/>
+    address 3:<br><input type="text" name="address 3" /><br/>
+    city:<br><input type="text" name="city" /><br/>
+    zipcode:<br><input type="number" name="zipcode" /><br/>
+    state:<br><input type="text" name="state" /><br/>
+    country:<br><input type="text" name="country" /><br/>
+    phone:<br><input type="text" name="phone" /><br/>
+    email:<br><input type="text" name="email" /><br/>
+    Created On:<br><input type="text" name="created" /><br/>
+    Created by:<br><input type="text" name="created_by" /><br/>
+    Updated:<br><input type="text" name="updated" /><br/>
+    Updated By:<br><input type="text" name="updated_by" /><br/>
+    <br/>
+<input class="btn btn-primary" type="submit" value="Post"/><br>
+</form>
+    </center>
+{% endblock %}
+</body>
+</html>

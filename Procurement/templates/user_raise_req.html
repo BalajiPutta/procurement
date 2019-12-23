@@ -1,0 +1,204 @@
+{% if request.session.user %}
+
+    {% include 'base.html' %}
+    {% load staticfiles %}
+
+    {% block content %}
+        <div class="dropdown" align="right">
+            <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ request.session.user }}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Contact Us</a>
+                <a class="dropdown-item" href="#">About</a>
+                <a class="dropdown-item" href="/user_logout/">Logout</a>
+            </div>
+        </div>
+
+
+        <link rel="stylesheet" href="{% static 'css/req_raise.css' %}" type="text/css">
+        <script type="javascript" href="{% static 'js/mini.js' %}"></script>
+
+        <div class="container">
+            <form class="form-horizontal" action="/user_raisehome/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend>
+                        <center><h2><b>Registration Form</b></h2></center>
+                    </legend>
+                    <br>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Request Title</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="title" placeholder="Title" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+
+                    {#<div class="form-group">#}
+                    {#  <label class="col-md-4 control-label" >Req_Prod_ID</label>#}
+                    {#    <div class="col-md-4 inputGroupContainer">#}
+                    {#    <div class="input-group">#}
+                    {#  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>#}
+                    {#  <input name="last_name" placeholder="Last Name" class="form-control"  type="text">#}
+                    {#    </div>#}
+                    {#  </div>#}
+                    {#</div>#}
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Req_Prod_ID</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="pid" class="form-control selectpicker">
+                                    <option value="">Select your Product ID</option>
+                                    <option>Paper plates</option>
+                                    <option>Teabags</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Product QTY</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="pqty" placeholder="Quantity" class="form-control" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Due_Date</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="due_date" placeholder="date" class="form-control" type="date">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Comments</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="comments" placeholder="req_Comments" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Text input-->
+                    {#    <div class="form-group">#}
+                    {#  <label class="col-md-4 control-label">Status</label>#}
+                    {#    <div class="col-md-4 inputGroupContainer">#}
+                    {#    <div class="input-group">#}
+                    {#        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>#}
+                    {#  <input name="" placeholder="E-Mail Address" class="form-control"  type="text">#}
+                    {#    </div>#}
+                    {#  </div>#}
+                    {#</div>#}
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Status</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="status" class="form-control selectpicker">
+                                    <option value="">Select your Product Status</option>
+                                    <option>completed</option>
+                                    <option>ordered</option>
+                                    <option>cancel</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Requester ID</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                <input name="reqesterid" placeholder="[0-9]....!" class="form-control" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Request to</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="request to" placeholder="request to" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Description</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="description" placeholder="description" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Select Basic -->
+
+                    <!-- Success message -->
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <!-- Button -->
+                    <div class="row">
+                        <div class="col" align="center">
+                            <form class="col" action="user_raisehome/" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-secondary btn-lm">submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+        <!-- /.container -->
+
+
+
+
+
+    {% endblock %}
+
+{% else %}
+
+{% endif %}

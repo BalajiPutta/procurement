@@ -1,0 +1,127 @@
+{% if request.session.user %}
+
+    {% include 'base.html' %}
+    {% load staticfiles %}
+
+    {% block content %}
+        <div class="dropdown" align="right">
+            <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ request.session.user }}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Contact Us</a>
+                <a class="dropdown-item" href="#">About</a>
+                <a class="dropdown-item" href="/user_logout/">Logout</a>
+            </div>
+        </div>
+
+
+        <div class="row" align="center">
+            <div class="col">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1"
+                        aria-expanded="false" aria-controls="collapseExample">
+                    Request
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2"
+                        aria-expanded="false" aria-controls="collapseExample">
+                    Response
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3"
+                        aria-expanded="false" aria-controls="collapseExample">
+                    Food Tracker
+                </button>
+            </div>
+        </div>
+
+        <h4 class="my-4"></h4>
+
+
+        <div class="collapse" id="collapseExample1">
+            <div class="card card-body">Request Columns
+                <div class="row">
+                    <div class="col" align="center">
+                        <form class="float-left" action="/user_raise_req/" align="center">
+                            <button type="submit" class="btn btn-secondary btn-lm">Raise Request</button>
+                        </form>
+                    </div>
+
+                    <div class="col" align="center">
+                        <form class="float-left" action="/user_cancel_req/" align="center">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">Cancel Request</button>
+                        </form>
+                    </div>
+                    <div class="float-right" align="center">
+                        <form class="col" action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">Inbox</button>
+                        </form>
+                    </div>
+                    <div class="float-right" align="left">
+                        <form class="col" action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">Sent</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="collapse" id="collapseExample2">
+            <div class="card card-body">Response Columns
+                <div class="row">
+                    <div class="col" align="center">
+                        <form class="col" action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">Inbox</button>
+                        </form>
+                    </div>
+                    <div class="col" align="center">
+                        <form class="col" action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">Sent</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="collapse" id="collapseExample3">
+            <div class="card card-body">Food Tracker Columns
+                <div class="row">
+                    <div class="col" align="center">
+                        <form class="col" action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">#</button>
+                        </form>
+                    </div>
+                    <div class="col" align="center">
+                        <form class="col" action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">#</button>
+                        </form>
+                    </div>
+                    <div class="col" align="center">
+                        <form class="col" action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-secondary btn-lm">#</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {% endblock %}
+
+{% else %}
+    {% include 'user_home.html' %}
+{% endif %}

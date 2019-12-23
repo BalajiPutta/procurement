@@ -1,0 +1,185 @@
+{% if request.session.user %}
+
+{% include 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="dropdown" align="right">
+  <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{ request.session.user }}
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Contact Us</a>
+    <a class="dropdown-item" href="#">About</a>
+    <a class="dropdown-item" href="/user_logout/">Logout</a>
+  </div>
+</div>
+
+
+<link rel="stylesheet" href="{% static 'css/cancel_raise.css' %}" type="text/css">
+    <script type="javascript" href="{% static 'js/mini.js' %}"></script>
+
+        <div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<fieldset>
+
+<!-- Form Name -->
+<legend><center><h2><b>Cancel Form</b></h2></center></legend><br>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Request Title</label>
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="title" placeholder="Title" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+
+{#<div class="form-group">#}
+{#  <label class="col-md-4 control-label" >Req_Prod_ID</label>#}
+{#    <div class="col-md-4 inputGroupContainer">#}
+{#    <div class="input-group">#}
+{#  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>#}
+{#  <input name="last_name" placeholder="Last Name" class="form-control"  type="text">#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+    <div class="form-group">
+  <label class="col-md-4 control-label" >Product</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="comments" placeholder="req_Comments" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Product QTY</label>
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="pqty" placeholder="Quantity" class="form-control"  type="number">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Due_Date</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="due_date" placeholder="date" class="form-control"  type="date">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Comments</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="comments" placeholder="req_Comments" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input-->
+{#    <div class="form-group">#}
+{#  <label class="col-md-4 control-label">Status</label>#}
+{#    <div class="col-md-4 inputGroupContainer">#}
+{#    <div class="input-group">#}
+{#        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>#}
+{#  <input name="" placeholder="E-Mail Address" class="form-control"  type="text">#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+    <div class="form-group">
+  <label class="col-md-4 control-label">status</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="status" class="form-control selectpicker">
+      <option value="">Select your Product Status</option>
+      <option>completed</option>
+      <option>ordered</option>
+      <option >cancel</option>
+    </select>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Request to</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="request to" placeholder="request to" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >cancel</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="cancel" placeholder="description" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+<!-- Select Basic -->
+
+<!-- Success message -->
+<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4"><br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+    <!-- /.container -->
+
+
+
+
+{% endblock %}
+
+{% else %}
+    {% include 'user_home.html' %}
+{% endif %}
+
